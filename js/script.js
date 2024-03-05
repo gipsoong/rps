@@ -1,6 +1,14 @@
+// initializing global variables
+// playerScore/computerScore to keep track of the winner of each round, 
+// the values will then get compared at the end of the game to declare the winner/loser or if it was a draw
+// isPromptValid to contain true/false which will be referenced in playGame
+
 let playerScore = 0;
 let computerScore = 0;
 let isPromptValid;
+
+// Prompts for the player's input, after that it converts the string to uppercase for easier validation
+let playerSelection = prompt('Rock, paper or scissors?').toUpperCase();
 
 function getComputerChoice() {
     let choices = ['ROCK', 'PAPER', 'SCISSORS'];
@@ -45,8 +53,6 @@ function playRound(playerSelection, computerSelection) {
     } 
 }
 
-let playerSelection = prompt('Rock, paper or scissors?').toUpperCase();
-
 function displayScore() {
     if (playerScore == computerScore) {
         console.log("Amazing, a tie after 5 rounds!");
@@ -58,6 +64,7 @@ function displayScore() {
 }
 
 function playGame() {
+    // checks prompt first to see if the game should even start depending on the player input
     checkPrompt();
 
     if (isPromptValid == true) {
@@ -75,4 +82,5 @@ function playGame() {
     }
 }
 
+// initializes the game
 playGame(); 
