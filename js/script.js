@@ -3,14 +3,28 @@ function getComputerChoice() {
     let random = Math.floor((Math.random() * choices.length));
     let computerChoice = choices[random];
 
-    console.log(computerChoice);
-
     return computerChoice;
 }
 
-getComputerChoice();
-
-function playRPS(playerSelection, computerSelection) {
-
+function playRound(playerSelection, computerSelection) {
+    if (playerSelection == computerSelection) {
+        return "It's a tie!";
+    } else if (playerSelection == 'Rock' && computerSelection == 'Paper') {
+        return "You lose! Paper beats Rock.";
+    } else if (playerSelection == 'Rock' && computerSelection == 'Scissors') {
+        return "You win! Rock beats Scissors.";
+    } else if (playerSelection == 'Paper' && computerSelection == 'Rock') {
+        return "You win! Paper beats Rock.";
+    } else if (playerSelection == 'Paper' && computerSelection == 'Scissors') {
+        return "You lose! Scissors beats Paper.";
+    } else if (playerSelection == 'Scissors' && computerSelection == 'Paper') {
+        return "You win! Scissors beats Paper.";
+    } else if (playerSelection == 'Scissors' && computerSelection == 'Rock') {
+        return "You lose! Rock beats Scissors.";
+    }
 }
 
+const playerSelection = 'Rock';
+const computerSelection = getComputerChoice();
+
+console.log(playRound(playerSelection, computerSelection));
