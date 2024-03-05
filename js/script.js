@@ -1,14 +1,11 @@
 // initializing global variables
 // playerScore/computerScore to keep track of the winner of each round, 
 // the values will then get compared at the end of the game to declare the winner/loser or if it was a draw
-// isPromptValid to contain true/false which will be referenced in playGame
 
 let playerScore = 0;
 let computerScore = 0;
-let isPromptValid;
 
-// Prompts for the player's input, after that it converts the string to uppercase for easier validation
-let playerSelection = prompt('Rock, paper or scissors?').toUpperCase();
+let playerSelection = "";
 
 function getComputerChoice() {
     let choices = ['ROCK', 'PAPER', 'SCISSORS'];
@@ -20,11 +17,9 @@ function getComputerChoice() {
 
 function checkPrompt() {
     if (playerSelection === 'ROCK' || playerSelection === 'PAPER' || playerSelection === 'SCISSORS') {
-        isPromptValid = true;
         return;
     } else if (playerSelection != 'ROCK' || playerSelection != 'PAPER' || playerSelection != 'SCISSORS') {
-        isPromptValid = false;
-        alert("Your input is not recognized, please refresh the page and enter 'Rock', 'Paper' or 'Scissors'. It does not have to be capitalized.");
+        alert("Your input is not recognized, please enter 'Rock', 'Paper' or 'Scissors' (not case-sensitive). Moving on to the next round.");
         return;
     }
 }
@@ -59,28 +54,30 @@ function displayScore() {
     } else if (playerScore > computerScore) {
         console.log("Congratulations, you win after 5 rounds!");
     } else if (computerScore > playerScore) {
-        console.log("Unfortunate, you lost after 5 rounds.");
+        console.log("You lost after 5 rounds, try again next time!");
     }
 }
 
 function playGame() {
-    // checks prompt first to see if the game should even start depending on the player input
-    checkPrompt();
+    // utilizing for loop to execute the five rounds
+    for (let i = 0; i < 5; i++) {
+        // Prompts for the player's input, after that it converts the string to uppercase for easier validation
+        playerSelection = prompt(`ROUND ${i + 1}: Rock, paper or scissors?`).toUpperCase();
+        let computerSelection = getComputerChoice();
+        console.log(`Player chose: ${playerSelection}, Computer chose: ${computerSelection}`);
 
-    if (isPromptValid == true) {
-        for (let i = 0; i < 5; i++) {
-            let computerSelection = getComputerChoice();
-            playRound(playerSelection, computerSelection);
-            console.log(`The current leaderboard is: Player: ${playerScore} and Computer: ${computerScore}`);
-            
-            if (i == 4) {
-                displayScore()
-            }
+        // checks prompt in order to display appropriate message
+        checkPrompt();
+
+        playRound(playerSelection, computerSelection);
+        console.log(`The current leaderboard is: Player: ${playerScore} and Computer: ${computerScore}`);
+        
+        // displays the final score at the end of the for loop
+        if (i == 4) {
+            displayScore()
         }
-    } else if (isPromptValid == false) {
-        return;
     }
 }
 
 // initializes the game
-playGame(); 
+playGame();
