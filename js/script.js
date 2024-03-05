@@ -7,6 +7,7 @@ function getComputerChoice() {
 }
 
 function playRound(playerSelection, computerSelection) {
+    
     if (playerSelection == computerSelection) {
         return "It's a tie!";
     } else if (playerSelection == 'Rock' && computerSelection == 'Paper') {
@@ -24,7 +25,15 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-const playerSelection = 'Rock';
-const computerSelection = getComputerChoice();
+let playerSelection = prompt('Rock, paper or scissors?');
 
-console.log(playRound(playerSelection, computerSelection));
+// console.log(playRound(playerSelection, computerSelection)); //
+
+function playGame() {
+    for (let i = 0; i < 5; i++) {
+        let computerSelection = getComputerChoice();
+        console.log(playRound(playerSelection, computerSelection));
+    }
+}
+
+playGame();
