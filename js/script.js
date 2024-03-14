@@ -5,27 +5,34 @@
 const rockBtn = document.querySelector('#rock');
 const paperBtn = document.querySelector('#paper');
 const scissorsBtn = document.querySelector('#scissors');
+const displayResult = document.querySelector('#display-result');
 
 rockBtn.addEventListener('click', function (e) {
-    scoreCounter += 1;
-    console.log(scoreCounter);
+    roundCounter += 1;
+    playerSelection = 'ROCK';
+    console.log(roundCounter);
+    console.log(playerSelection);
 });
 
 paperBtn.addEventListener('click', function (e) {
-    scoreCounter += 1;
-    console.log(scoreCounter);
+    roundCounter += 1;
+    playerSelection = 'PAPER';
+    console.log(roundCounter);
+    console.log(playerSelection);
 });
 
 scissorsBtn.addEventListener('click', function (e) {
-    scoreCounter += 1;
-    console.log(scoreCounter);
+    roundCounter += 1;
+    playerSelection = 'SCISSORS';
+    console.log(roundCounter);
+    console.log(playerSelection);
 });
 
 function play() {
 
 }
 
-let scoreCounter = 0;
+let roundCounter = 0;
 let playerScore = 0;
 let computerScore = 0;
 
@@ -91,7 +98,7 @@ function playGame() {
         console.log(`Player chose: ${playerSelection}, Computer chose: ${computerSelection}`);
 
         // checks prompt in order to display appropriate message
-        checkPrompt();
+        // checkPrompt();
 
         playRound(playerSelection, computerSelection);
         console.log(`The current leaderboard is: Player: ${playerScore} and Computer: ${computerScore}`);
