@@ -1,11 +1,17 @@
 // initializing global variables
 // playerScore/computerScore to keep track of the winner of each round, 
 // the values will then get compared at the end of the game to declare the winner/loser or if it was a draw
+let roundCounter = 0;
+let playerScore = 0;
+let computerScore = 0;
 
 const rockBtn = document.querySelector('#rock');
 const paperBtn = document.querySelector('#paper');
 const scissorsBtn = document.querySelector('#scissors');
 const displayResult = document.querySelector('#display-result');
+const displayRound = document.querySelector('h3 span');
+
+displayRound.textContent = roundCounter;
 
 rockBtn.addEventListener('click', function (e) {
     roundCounter += 1;
@@ -38,14 +44,12 @@ function play() {
     let computerSelection = getComputerChoice();
     playRound(playerSelection, computerSelection);
 
+    displayRound.textContent = roundCounter;
+
     if (roundCounter == 5) {
         displayScore();
     }
 }
-
-let roundCounter = 0;
-let playerScore = 0;
-let computerScore = 0;
 
 let playerSelection = "";
 
@@ -87,7 +91,7 @@ function playRound(playerSelection, computerSelection) {
     } else if (playerSelection == 'SCISSORS' && computerSelection == 'ROCK') {
         console.log('You lose this round, Rock beats Scissors!');
         return computerScore += 1;
-    } 
+    }
 }
 
 function displayScore() {
