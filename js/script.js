@@ -11,7 +11,12 @@ const scissorsBtn = document.querySelector('#scissors');
 const displayResult = document.querySelector('#display-result');
 const displayRound = document.querySelector('h3 span');
 
+const displayPlayerScore = document.querySelector('#displayPlayerScore span');
+const displayComputerScore = document.querySelector('#displayComputerScore span');
+
 displayRound.textContent = roundCounter;
+displayPlayerScore.textContent = playerScore;
+displayComputerScore.textContent = computerScore;
 
 rockBtn.addEventListener('click', function (e) {
     roundCounter += 1;
@@ -44,6 +49,8 @@ function play() {
     let computerSelection = getComputerChoice();
     playRound(playerSelection, computerSelection);
 
+    displayPlayerScore.textContent = playerScore;
+    displayComputerScore.textContent = computerScore;
     displayRound.textContent = roundCounter;
 
     if (roundCounter == 5) {
