@@ -80,4 +80,4 @@ function playGame() {
 }
 
 // initializes the game
-playGame();
+// playGame();
