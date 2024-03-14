@@ -10,26 +10,37 @@ const displayResult = document.querySelector('#display-result');
 rockBtn.addEventListener('click', function (e) {
     roundCounter += 1;
     playerSelection = 'ROCK';
-    console.log(roundCounter);
-    console.log(playerSelection);
+    // console.log(roundCounter);
+    // console.log(playerSelection);
+
+    play();
 });
 
 paperBtn.addEventListener('click', function (e) {
     roundCounter += 1;
     playerSelection = 'PAPER';
-    console.log(roundCounter);
-    console.log(playerSelection);
+    // console.log(roundCounter);
+    // console.log(playerSelection);
+
+    play();
 });
 
 scissorsBtn.addEventListener('click', function (e) {
     roundCounter += 1;
     playerSelection = 'SCISSORS';
-    console.log(roundCounter);
-    console.log(playerSelection);
+    // console.log(roundCounter);
+    // console.log(playerSelection);
+
+    play();
 });
 
 function play() {
+    let computerSelection = getComputerChoice();
+    playRound(playerSelection, computerSelection);
 
+    if (roundCounter == 5) {
+        displayScore();
+    }
 }
 
 let roundCounter = 0;
