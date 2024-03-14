@@ -7,15 +7,18 @@ const paperBtn = document.querySelector('#paper');
 const scissorsBtn = document.querySelector('#scissors');
 
 rockBtn.addEventListener('click', function (e) {
-    console.log(e.target);
+    scoreCounter += 1;
+    console.log(scoreCounter);
 });
 
 paperBtn.addEventListener('click', function (e) {
-    console.log(e.target);
+    scoreCounter += 1;
+    console.log(scoreCounter);
 });
 
 scissorsBtn.addEventListener('click', function (e) {
-    console.log(e.target);
+    scoreCounter += 1;
+    console.log(scoreCounter);
 });
 
 function play() {
