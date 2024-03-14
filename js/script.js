@@ -2,6 +2,27 @@
 // playerScore/computerScore to keep track of the winner of each round, 
 // the values will then get compared at the end of the game to declare the winner/loser or if it was a draw
 
+const rockBtn = document.querySelector('#rock');
+const paperBtn = document.querySelector('#paper');
+const scissorsBtn = document.querySelector('#scissors');
+
+rockBtn.addEventListener('click', function (e) {
+    console.log(e.target);
+});
+
+paperBtn.addEventListener('click', function (e) {
+    console.log(e.target);
+});
+
+scissorsBtn.addEventListener('click', function (e) {
+    console.log(e.target);
+});
+
+function play() {
+
+}
+
+let scoreCounter = 0;
 let playerScore = 0;
 let computerScore = 0;
 
