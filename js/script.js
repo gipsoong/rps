@@ -1,6 +1,7 @@
 // initializing global variables
 // playerScore/computerScore to keep track of the winner of each round, 
 // the values will then get compared at the end of the game to declare the winner/loser or if it was a draw
+// roudndCounter value gets added to with each button click, ends the game when == 5
 let roundCounter = 0;
 let playerScore = 0;
 let computerScore = 0;
@@ -71,15 +72,6 @@ function getComputerChoice() {
     return computerChoice;
 }
 
-function checkPrompt() {
-    if (playerSelection === 'ROCK' || playerSelection === 'PAPER' || playerSelection === 'SCISSORS') {
-        return;
-    } else if (playerSelection != 'ROCK' || playerSelection != 'PAPER' || playerSelection != 'SCISSORS') {
-        alert("Your input is not recognized, please enter 'Rock', 'Paper' or 'Scissors' (not case-sensitive). Moving on to the next round.");
-        return;
-    }
-}
-
 function playRound(playerSelection, computerSelection) {
     if (playerSelection == computerSelection) {
         flavorText.textContent = `(It's a tie! Both players chose ${computerSelection})`;
@@ -127,27 +119,3 @@ function displayScore() {
     playerScore = 0;
     computerScore = 0;
 }
-
-function playGame() {
-    // utilizing for loop to execute the five rounds
-    for (let i = 0; i < 5; i++) {
-        // Prompts for the player's input, after that it converts the string to uppercase for easier validation
-        playerSelection = prompt(`ROUND ${i + 1}: Rock, paper or scissors?`).toUpperCase();
-        let computerSelection = getComputerChoice();
-        console.log(`Player chose: ${playerSelection}, Computer chose: ${computerSelection}`);
-
-        // checks prompt in order to display appropriate message
-        // checkPrompt();
-
-        playRound(playerSelection, computerSelection);
-        console.log(`The current leaderboard is: Player: ${playerScore} and Computer: ${computerScore}`);
-        
-        // displays the final score at the end of the for loop
-        if (i == 4) {
-            displayScore()
-        }
-    }
-}
-
-// initializes the game
-// playGame();
