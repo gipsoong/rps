@@ -9,7 +9,9 @@ const rockBtn = document.querySelector('#rock');
 const paperBtn = document.querySelector('#paper');
 const scissorsBtn = document.querySelector('#scissors');
 const displayResult = document.querySelector('#display-result');
-const displayRound = document.querySelector('h3 span');
+const displayRound = document.querySelector('#display-round');
+const promptText = document.querySelector('h2 span');
+const flavorText = document.querySelector('#flavor-text');
 
 const displayPlayerScore = document.querySelector('#displayPlayerScore span');
 const displayComputerScore = document.querySelector('#displayComputerScore span');
@@ -49,6 +51,7 @@ function play() {
     let computerSelection = getComputerChoice();
     playRound(playerSelection, computerSelection);
 
+    promptText.textContent = '';
     displayPlayerScore.textContent = playerScore;
     displayComputerScore.textContent = computerScore;
     displayRound.textContent = roundCounter;
@@ -79,35 +82,45 @@ function checkPrompt() {
 
 function playRound(playerSelection, computerSelection) {
     if (playerSelection == computerSelection) {
-        console.log("It's a tie!");
+        flavorText.textContent = `(It's a tie! Both players chose ${computerSelection})`;
+        // console.log("It's a tie!");
     } else if (playerSelection == 'ROCK' && computerSelection == 'PAPER') {
-        console.log('You lose this round, Paper beats Rock!');
+        flavorText.textContent = `(Computer chose ${computerSelection}, you lost round ${roundCounter}!)`;
+        // console.log('You lose this round, Paper beats Rock!');
         return computerScore += 1;
     } else if (playerSelection == 'ROCK' && computerSelection == 'SCISSORS') {
-        console.log('You win this round, Rock beats Scissors!');
+        flavorText.textContent = `(Computer chose ${computerSelection}, you won round ${roundCounter}!)`;
+        // console.log('You win this round, Rock beats Scissors!');
         return playerScore += 1;
     } else if (playerSelection == '{PAPER}' && computerSelection == 'ROCK') {
-        console.log('You win this round, Paper beats Rock!');
+        flavorText.textContent = `(Computer chose ${computerSelection}, you won round ${roundCounter}!)`;
+        // console.log('You win this round, Paper beats Rock!');
         return playerScore += 1;
     } else if (playerSelection == 'PAPER' && computerSelection == 'SCISSORS') {
-        console.log('You lose this round, Scissors beats Paper!');
+        flavorText.textContent = `(Computer chose ${computerSelection}, you lost round ${roundCounter}!)`;
+        // console.log('You lose this round, Scissors beats Paper!');
         return computerScore += 1;
     } else if (playerSelection == 'SCISSORS' && computerSelection == 'PAPER') {
-        console.log('You win this round, Paper beats Rock!');
+        flavorText.textContent = `(Computer chose ${computerSelection}, you won round ${roundCounter}!)`;
+        // console.log('You win this round, Paper beats Rock!');
         return playerScore += 1;
     } else if (playerSelection == 'SCISSORS' && computerSelection == 'ROCK') {
-        console.log('You lose this round, Rock beats Scissors!');
+        flavorText.textContent = `(Computer chose ${computerSelection}, you lost round ${roundCounter}!)`;
+        // console.log('You lose this round, Rock beats Scissors!');
         return computerScore += 1;
     }
 }
 
 function displayScore() {
     if (playerScore == computerScore) {
-        console.log("Amazing, a tie after 5 rounds!");
+        flavorText.textContent = 'Amazing, a tie after 5 rounds! Click one of the buttons below to start another game.';
+        // console.log("Amazing, a tie after 5 rounds!");
     } else if (playerScore > computerScore) {
-        console.log("Congratulations, you win after 5 rounds!");
+        flavorText.textContent = 'Congratulations, you win after 5 rounds! Click one of the buttons below to start another game.';
+        // console.log("Congratulations, you win after 5 rounds!");
     } else if (computerScore > playerScore) {
-        console.log("You lost after 5 rounds, try again next time!");
+        flavorText.textContent = 'You lost after 5 rounds, try again next time! Click one of the buttons below to start another game.';
+        // console.log("You lost after 5 rounds, try again next time!");
     }
 }
 
