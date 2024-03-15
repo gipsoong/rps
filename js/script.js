@@ -113,13 +113,13 @@ function playRound(playerSelection, computerSelection) {
 
 function displayScore() {
     if (playerScore == computerScore) {
-        flavorText.textContent = 'Amazing, a tie after 5 rounds! Click one of the buttons below to start another game.';
+        promptText.textContent = 'Amazing, a tie after 5 rounds! Click one of the buttons below to start another game.';
         // console.log("Amazing, a tie after 5 rounds!");
     } else if (playerScore > computerScore) {
-        flavorText.textContent = 'Congratulations, you win after 5 rounds! Click one of the buttons below to start another game.';
+        promptText.textContent = 'Congratulations, you win after 5 rounds! Click one of the buttons below to start another game.';
         // console.log("Congratulations, you win after 5 rounds!");
     } else if (computerScore > playerScore) {
-        flavorText.textContent = 'You lost after 5 rounds, try again next time! Click one of the buttons below to start another game.';
+        promptText.textContent = 'You lost after 5 rounds, try again next time! Click one of the buttons below to start another game.';
         // console.log("You lost after 5 rounds, try again next time!");
     }
 
