@@ -122,6 +122,10 @@ function displayScore() {
         flavorText.textContent = 'You lost after 5 rounds, try again next time! Click one of the buttons below to start another game.';
         // console.log("You lost after 5 rounds, try again next time!");
     }
+
+    roundCounter = 0;
+    playerScore = 0;
+    computerScore = 0;
 }
 
 function playGame() {
